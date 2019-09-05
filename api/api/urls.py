@@ -17,14 +17,17 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from core.views import *
+from rest_framework.authtoken.views import obtain_auth_token
 
 router = routers.DefaultRouter()
 router.register(r'clientes', ClienteViewSet)
 router.register(r'endereco', EnderecoViewSet)
 router.register(r'endcliente', EndClienteViewSet)
+router.register('users', UserViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
-    path('api-auth', include('rest_framework.urls'))
+    path('api-auth', include('rest_framework.urls')),
+    path('auth/', obtain_auth_token)
 ]

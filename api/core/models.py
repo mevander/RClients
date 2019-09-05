@@ -5,12 +5,12 @@ class Cliente(models.Model):
     id = models.AutoField(primary_key=True)
     nome = models.CharField(max_length=100)
     sexo = models.CharField(max_length=15)
-    telefone = models.CharField(max_length=10)
-    celular = models.CharField(max_length=11)
+    telefone = models.CharField(max_length=14)
+    celular = models.CharField(max_length=15)
     email = models.CharField(max_length=50)
     dtnasc = models.DateField()
-    cpf = models.CharField(max_length=11)
-    rg = models.CharField(max_length=9)
+    cpf = models.CharField(max_length=15)
+    rg = models.CharField(max_length=12)
 
     class Meta:
         db_table = "Cliente"

@@ -1,8 +1,25 @@
-from rest_framework import serializers
 from .models import Cliente, Endereco
+from rest_framework import serializers
+from django.contrib.auth.models import User
+from rest_framework.authtoken.models import Token
+from rest_framework.permissions import IsAuthenticated
+
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'password']
+        extra_kwargs = {'password': {'write_only': True, 'required': True}}
+
+    def create(self, validated_data):
+        user = User.objects.create_user(**validated_data)
+        Token.objects.create(user=user)
+        return user
 
 
 class EndClienteSerializer(serializers.ModelSerializer):
+    permission_classes = (IsAuthenticated,)
+
     class Meta:
         model = Endereco
         fields = '__all__'
@@ -15,6 +32,7 @@ class EnderecoSerializer(serializers.ModelSerializer):
 
 
 class ClienteSerializer(serializers.ModelSerializer):
+    permission_classes = (IsAuthenticated,)
     enderecos = EnderecoSerializer(many=True)
 
     class Meta:
