@@ -19,7 +19,7 @@ Abaixo seguirá o contrato de como as respostas em _JSON_ serão retornadas e co
 ```json
 [
     {
-        "id": 0
+        "id": 0,
         "nome": "String",
         "sexo": "String",
         "telefone": "String",
@@ -54,7 +54,7 @@ Abaixo seguirá o contrato de como as respostas em _JSON_ serão retornadas e co
 
 ```json
 {
-    "id": 0
+    "id": 0,
     "nome": "String",
     "sexo": "String",
     "telefone": "String",
