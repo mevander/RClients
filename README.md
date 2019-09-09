@@ -2,9 +2,9 @@
 
 #####Tecnologias utilizadas
 
-**- Python 3.7.4**
-**- Django 2.2**
-**- Django Rest Framework**
+- **Python 3.7.4**
+- **Django 2.2**
+- **Django Rest Framework**
 
 O Projeto **RClients** é o BackEnd do projeto **CClients**, as definições de uso dos endpoints seguem o formato das aplicações padrões desenvolvidas com o Django Rest Framework, ou seja, um end-point trata de uma tabela que é representada por uma model, os verbos utilizados serão os **GET**, **POST**, **PUT** e **DELETE**.
 
